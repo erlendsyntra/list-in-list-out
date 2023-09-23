@@ -12,6 +12,8 @@ const leftArray = [
   "Hazelnut",
   "Ice",
   "Kiwi",
+];
+const rightArray = [
   "Lemon",
   "Mango",
   "Nuts",
@@ -23,12 +25,12 @@ const leftArray = [
   "Tomato",
   "Watermelon",
 ];
-const rightArray = [];
 const leftList = document.querySelector(".app__left__list");
 const rightList = document.querySelector(".app__right__list");
 
 const main = () => {
   render(leftArray, leftList);
+  render(rightArray, rightList);
 };
 
 main();
