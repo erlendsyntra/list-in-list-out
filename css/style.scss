@@ -1,0 +1,30 @@
+@use "./base/reset";
+@use "./base/variables" as *;
+@use "./base/fonts";
+@use "./base/mixins" as *;
+
+h1 {
+  @include regular();
+  @include bold();
+  text-align: center;
+}
+
+.app {
+  background-color: #fff;
+  display: grid;
+  padding: 1rem;
+  grid-template-columns: calc(50% - 1rem) calc(50% - 1rem);
+  gap: 2rem;
+  &__left {
+    background-color: lightgray;
+    min-height: 200px;
+    border: 1px solid grey;
+    border-radius: 10px;
+  }
+  &__right {
+    background-color: lightgray;
+    min-height: 200px;
+    border: 1px solid grey;
+    border-radius: 10px;
+  }
+}
