@@ -5,7 +5,7 @@ const leftArray = [
   "Apple",
   "Banana",
   "Cheese",
-  "Dateonut",
+  "Doughnut",
   "Egg",
   "Fig",
   "Grapefruit",
@@ -31,6 +31,20 @@ const rightList = document.querySelector(".app__right__list");
 const main = () => {
   render(leftArray, leftList);
   render(rightArray, rightList);
+};
+
+leftList.onclick = (e) => {
+  leftArray.splice(leftArray.indexOf(e.target.innerHTML), 1);
+  rightArray.push(e.target.innerHTML);
+  render(leftArray, leftList);
+  render(rightArray, rightList);
+};
+
+rightList.onclick = (e) => {
+  rightArray.splice(rightArray.indexOf(e.target.innerHTML), 1);
+  leftArray.push(e.target.innerHTML);
+  render(rightArray, rightList);
+  render(leftArray, leftList);
 };
 
 main();
