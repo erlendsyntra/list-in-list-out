@@ -1,16 +1,8 @@
-export const render = (array, list) => {
-  list.innerHTML = array.map((el) => `<li>${el}</li>`).join("");
-};
-
-export const play = (id) => {
-  var audio = document.querySelector(`#${id}`);
-  audio.play();
-};
-
-export const getDataSet = async (type) => {
+const getDataSet = async (type) => {
   if (type === "birds") {
     const response = await fetch("http://ap-examen.surge.sh/vogels.json");
     const data = await response.json();
+    console.log(data.map((el) => el.latijnse_benaming));
     return data.map((el) => el.latijnse_benaming);
   } else {
     const response = await new Promise((res) =>
@@ -37,6 +29,9 @@ export const getDataSet = async (type) => {
         "Watermelon",
       ])
     );
+    console.log(response);
     return response;
   }
 };
+
+getDataSet("food");
