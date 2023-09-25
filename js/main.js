@@ -1,5 +1,5 @@
 import "/css/style.scss";
-import { render, dataSetLeft, dataSetRight } from "./functions.js";
+import { render, dataSetLeft, dataSetRight, play } from "./functions.js";
 
 const leftArray = dataSetLeft;
 const rightArray = dataSetRight;
@@ -14,6 +14,7 @@ const main = () => {
 leftList.onclick = (e) => {
   leftArray.splice(leftArray.indexOf(e.target.innerHTML), 1);
   rightArray.push(e.target.innerHTML);
+  play("audio-tic");
   render(leftArray, leftList);
   render(rightArray.sort(), rightList);
 };
@@ -21,6 +22,7 @@ leftList.onclick = (e) => {
 rightList.onclick = (e) => {
   rightArray.splice(rightArray.indexOf(e.target.innerHTML), 1);
   leftArray.push(e.target.innerHTML);
+  play("audio-toc");
   render(rightArray, rightList);
   render(leftArray.sort(), leftList);
 };
