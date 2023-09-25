@@ -1,11 +1,16 @@
 import "/css/style.scss";
 import { render, play, getDataSet } from "./functions.js";
 
+const picker = document.querySelector("#data-select");
 const leftList = document.querySelector(".app__left__list");
 const rightList = document.querySelector(".app__right__list");
 
-const main = async () => {
-  const dataSet = await getDataSet("birds");
+picker.addEventListener("change", (e) => {
+  main(e.target.value);
+});
+
+const main = async (choice) => {
+  const dataSet = await getDataSet(choice);
   const leftArray = dataSet.slice(0, Math.floor(dataSet.length / 2));
   const rightArray = dataSet.slice(Math.floor(dataSet.length / 2));
   render(leftArray, leftList);
@@ -28,4 +33,4 @@ const main = async () => {
   };
 };
 
-main();
+main(picker.value);

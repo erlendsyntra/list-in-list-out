@@ -34,4 +34,4 @@ const getDataSet = async (type) => {
   }
 };
 
-getDataSet("food");
+getDataSet("birds");

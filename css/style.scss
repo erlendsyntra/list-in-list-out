@@ -3,9 +3,19 @@
 @use "./base/fonts";
 @use "./base/mixins" as *;
 
+nav {
+  display: block;
+  margin: 0 auto;
+}
+
 h1 {
-  // @include regular();
   @include bold();
+  text-align: center;
+}
+
+.choice {
+  font-size: 2.5rem;
+  font-weight: bold;
   text-align: center;
 }
 
