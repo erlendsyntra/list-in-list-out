@@ -1,12 +1,16 @@
 import "/css/style.scss";
 import { render, play, getDataSet } from "./functions.js";
 
-const picker = document.querySelector("#data-select");
+const picker = document.querySelector(".choice");
 const leftList = document.querySelector(".app__left__list");
 const rightList = document.querySelector(".app__right__list");
 
+// picker.addEventListener("change", (e) => {
+//   main(e.target.id);
+// });
+
 picker.addEventListener("change", (e) => {
-  main(e.target.value);
+  main(e.target.id);
 });
 
 const main = async (choice) => {
@@ -33,4 +37,4 @@ const main = async (choice) => {
   };
 };
 
-main(picker.value);
+main("food");
