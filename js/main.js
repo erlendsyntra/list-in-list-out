@@ -21,19 +21,23 @@ const main = async (choice) => {
   render(rightArray, rightList);
 
   leftList.onclick = (e) => {
-    leftArray.splice(leftArray.indexOf(e.target.innerHTML), 1);
-    rightArray.push(e.target.innerHTML);
-    play("audio-tic");
-    render(leftArray, leftList);
-    render(rightArray.sort(), rightList);
+    if (e.target.nodeName === "LI") {
+      leftArray.splice(leftArray.indexOf(e.target.innerHTML), 1);
+      rightArray.push(e.target.innerHTML);
+      play("audio-tic");
+      render(leftArray, leftList);
+      render(rightArray.sort(), rightList);
+    }
   };
 
   rightList.onclick = (e) => {
-    rightArray.splice(rightArray.indexOf(e.target.innerHTML), 1);
-    leftArray.push(e.target.innerHTML);
-    play("audio-toc");
-    render(rightArray, rightList);
-    render(leftArray.sort(), leftList);
+    if (e.target.nodeName === "LI") {
+      rightArray.splice(rightArray.indexOf(e.target.innerHTML), 1);
+      leftArray.push(e.target.innerHTML);
+      play("audio-toc");
+      render(rightArray, rightList);
+      render(leftArray.sort(), leftList);
+    }
   };
 };
 
